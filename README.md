@@ -1,2 +1,2 @@
 # ibus-rime
-RIME | 中州韻輸入法 我的配置
+RIME | 中州韻輸入法 我的配置 t
