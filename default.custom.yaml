@@ -1,0 +1,6 @@
+patch:
+  schema_list:
+    - schema: luna_pinyin_simp    # 方案选单备选输入方案
+  menu/page_size: 5               # 候选字数
+  style/horizontal: true          # 候选窗水平显示
+  switcher/fold_options: false    # 合并候选菜单

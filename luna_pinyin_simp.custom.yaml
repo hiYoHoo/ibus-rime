@@ -1,0 +1,38 @@
+patch:
+  switches/@0/reset: 1                     # 默认英文输入
+  speller/algebra:                         # 模糊拼音
+    - erase/^xx$/                          # 第一行保留
+    - derive/^([zcs])h/$1/                 # zh, ch, sh => z, c, s
+    - derive/^([zcs])([^h])/$1h$2/         # z, c, s => zh, ch, sh
+    #- derive/^n/l/                        # n => l
+    #- derive/^l/n/                        # l => n
+    #- derive/^r/l/                        # r => l
+    #- derive/^l/r/                        # l => r
+
+    #- derive/^hu$/fu/                     # hu => fu
+    #- derive/^hong$/feng/                 # hong => feng
+    #- derive/^hu([in])$/fe$1/             # hui => fei, hun => fen
+    #- derive/^hu([ao])/f$1/               # hua => fa, ...
+
+    #- derive/^fu$/hu/                     # fu => hu
+    #- derive/^feng$/hong/                 # feng => hong
+    #- derive/^fe([in])$/hu$1/             # fei => hui, fen => hun
+    #- derive/^f([ao])/hu$1/               # fa => hua, ...
+
+    #- derive/^([bpmf])eng$/$1ong/         # meng = mong, ...
+    - derive/([ei])n$/$1ng/                # en => eng, in => ing
+    - derive/([ei])ng$/$1n/                # eng => en, ing => in
+
+    # 容错
+    - derive/^([nl])ve$/$1ue/              # nve = nue, lve = lue
+    - derive/^([jqxy])u/$1v/               # ju = jv,
+    #- derive/un$/uen/                     # gun = guen,
+    #- derive/ui$/uei/                     # gui = guei,
+    #- derive/iu$/iou/                     # jiu = jiou,
+
+    # 纠错
+    #- derive/([aeiou])ng$/$1gn/           # dagn => dang
+    #- derive/([dtngkhrzcs])o(u|ng)$/$1o/  # zho => zhong|zhou
+    - derive/ong$/on/                      # zhonguo => zhong guo
+    #- derive/ao$/oa/                      # hoa => hao
+    #- derive/([iu])a(o|ng?)$/a$1$2/       # tain => tian
